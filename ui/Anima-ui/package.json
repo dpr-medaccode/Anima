@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "wasm-pack build ../../canvas/Anima-canvas --target web && wasm-pack build ../../engine/Anima-engine --target web && vite",
+    "build::web": "vite build",
+    "build:wasm": "wasm-pack build ../../canvas/Anima-canvas --target web && wasm-pack build ../../engine/Anima-engine --target web",
+    "build": "wasm-pack build ../../canvas/Anima-canvas --target web && wasm-pack build ../../engine/Anima-engine --target web && vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.app.json && tsc -p tsconfig.node.json"
   },
