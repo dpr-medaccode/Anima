@@ -1,21 +1,22 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import init, { AnimaCanvas } from "$AnimaCanvas/Anima_canvas.js";
+    import init, { Anima } from "$AnimaCore/anima_core.js";
 
     let canvasElement: HTMLCanvasElement;
-    let anima: AnimaCanvas;
+    let anima: Anima;
 
     onMount(async () => {
         try {
             await init();
 
-            anima = AnimaCanvas.new_with_element(canvasElement);
+            anima = Anima.new_with_element(canvasElement);
 
             anima.draw();
 
-            console.log("AnimaCanvas inicializado con éxito");
         } catch (error) {
-            console.error("Error al inicializar WASM:", error);
+
+            console.error(error);
+            
         }
     });
 </script>

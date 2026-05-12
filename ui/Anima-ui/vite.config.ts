@@ -8,8 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      '$AnimaCanvas': path.resolve(__dirname, '../../canvas/Anima-canvas/pkg'),
-      '$AnimaEngine': path.resolve(__dirname, '../../engine/Anima-engine/pkg')
+      '$AnimaCore': path.resolve(__dirname, '../../core/Anima-core/pkg'),
     }
   },
   server: {

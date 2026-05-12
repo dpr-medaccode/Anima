@@ -1,21 +1,26 @@
+pub mod lienzo;
+pub mod entidad;
+
 use wasm_bindgen::prelude::*;
 use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement};
 
 #[wasm_bindgen]
-pub struct AnimaCanvas {
+pub struct Anima {
+
     ctx: CanvasRenderingContext2d,
+
 }
 
 #[wasm_bindgen]
-impl AnimaCanvas {
+impl Anima {
 
-  pub fn new_with_element(canvas: HtmlCanvasElement) -> Result<AnimaCanvas, JsValue> {
+  pub fn new_with_element(canvas: HtmlCanvasElement) -> Result<Anima, JsValue> {
         let ctx = canvas
             .get_context("2d")?
             .ok_or("No context")?
             .dyn_into::<CanvasRenderingContext2d>()?;
 
-        Ok(AnimaCanvas { ctx })
+        Ok(Anima { ctx })
     }
 
     pub fn draw(&self) {
@@ -28,3 +33,8 @@ impl AnimaCanvas {
             .unwrap();
     }
 }
+
+// https://www.chinedufn.com/3d-webgl-basic-water-tutorial/
+// pixels
+// webgl
+// glow
